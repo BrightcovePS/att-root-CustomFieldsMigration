@@ -1,0 +1,25 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ooyala_metadata_export.js",
+  "dependencies": {
+    "csv": "^5.3.1",
+    "csv-write-stream": "^2.0.0",
+    "fast-csv": "^3.7.0",
+    "fs": "^0.0.1-security",
+    "http-proxy": "^1.18.0",
+    "json2csv": "^4.5.4",
+    "jsonexport": "^2.4.1",
+    "ooyala-api": "^0.14.1",
+    "request": "^2.88.0",
+    "sync-request": "^6.1.0",
+    "xlsx": "^0.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Midhun KG",
+  "license": "ISC"
+}
