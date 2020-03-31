@@ -1,5 +1,10 @@
 //Insrtuction to use
 
+// Please install following dependancies
+//1.npm install request --save
+//2.npm install sync-request
+//3.npm install json2csv --save
+
 //Please update the client_id, client_secret and accoundId with respective one.
 
 var request = require('request');

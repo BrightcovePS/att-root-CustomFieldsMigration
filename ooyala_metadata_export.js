@@ -1,6 +1,6 @@
 /// install:-  npm install ooyala-api
 /// install:-  npm install json2csv --save
-/// Update:- update api_key, api_secret and accoundId
+/// Update:- update ooyala api_key, api_secret and accoundId
 
 
 /////////THIS IS TO GET THE EMBED CODES AND OTHER METADATA WHICH **DOES NOT** COME UNDER CUSTOM METADATA///////////////////

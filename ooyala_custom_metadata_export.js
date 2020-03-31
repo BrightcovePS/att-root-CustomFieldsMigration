@@ -24,7 +24,7 @@ function data_parser(data,asset_id,ad_set_id,player_id,pub_rule_id,labels){
  csv="\n"+prepend_str+csv
 
  var fs = require('fs');
- var filename='Ooyala_Custom_Metadata_111019.csv' // Here the original filename will have to be updated based on the init.js
+ var filename='Ooyala_Custom_Metadata_111019.csv' // Here the filename will have to be updated based on the init.js
   fs.writeFile(filename, csv,{flag:'a+'}, function(err) {
                    if (err) {
                    console.log('Error in file writing');
@@ -48,7 +48,7 @@ function metadata_call(asset_id,ad_set_id,player_id,pub_rule_id){
      console.log('Error: ', err);
      var data="\n"+embed_code+","+err
      var fs = require('fs');
-     var filename='label_resource_notfound.csv' // Here the original filename will have to be updated based on the init.js
+     var filename='label_resource_notfound.csv' 
       fs.writeFile(filename, data,{flag:'a+'}, function(err) {
                        if (err) {
                        console.log('Error in error file writing');
@@ -76,7 +76,7 @@ function metadata_call(asset_id,ad_set_id,player_id,pub_rule_id){
        console.log('Error: ', err);
        var data="\n"+embed_code+","+err
      var fs = require('fs');
-     var filename='metadata_resource_notfound.csv' // Here the original filename will have to be updated based on the init.js
+     var filename='metadata_resource_notfound.csv' 
       fs.writeFile(filename, data,{flag:'a+'}, function(err) {
                        if (err) {
                        console.log('Error in error file writing');
@@ -98,11 +98,9 @@ function metadata_call(asset_id,ad_set_id,player_id,pub_rule_id){
 
 }
 
-
 //Function to get each embed code from csv file 
 function get_assetid(){
   var csv=require('fast-csv')
-//  embed_code='AzNm94aTE6xwFJ9s4iv35VPD5ZuxYXtX'
   //Write here the code to retrieve the embed codes one by one from the file
   filePath="Ooyala_Metadata_111019.csv"
   let csvstream = csv.fromPath(filePath, { header: false })
@@ -123,7 +121,6 @@ function get_assetid(){
         metadata_call(embed_code,ad_set_id,player_id,pub_rule_id) 
         
       //  if(count<10000)  //Uncomment this to check for just 10 and not thw whole assets
-      //     console.log("Addd")
         csvstream.resume();
         }
     })
