@@ -3,7 +3,7 @@ Migration script of custom metadata from Ooyala Backlot to custom fields in Brig
 
 Problem Statement:
 
-Migration of assets and metadata from Ooyala to Brightcove was performed by appending all the metadata values to metadata fields in VC. But the custom metadata as custom fields needed to be migrated.
+Migration of assets and metadata from Ooyala to Brightcove was performed by appending all the metadata values to metadata fields in VC. But the custom metadata as custom fields needed to be migrated. Also '/' was appended with all the tags, so it needs to be removed.
 There were a total of 59 custom metadata fields that needs to be mapped in videocloud. Note that a video doesn’t necessarily have data for all these fields. These 59 are the custom fields of AT&T account.
 
 Solution:
@@ -20,20 +20,22 @@ If an asset doesn’t have a field, ‘NA’ will be placed. (ooyala_custom_meta
 
 How to run the scripts.
 
+Install all the required node packages by running the command "npm install".
 After installing all the node packages required.
 
-1.	Run ooyala_metadata_export.js - This will fetch the embed codes and all the asset metadata and store it in a csv.
+1.	Update api_key, api_secret and accoundId in the file 'ooyyala_metdata_export.js' and run ooyala_metadata_export.js - This will fetch the embed codes and all the asset metadata and store it in a csv.
 [ node ooyyala_metdata_export.js ]
 
 
 2.	After 1, run ooyala_custom_metdata_init.js - This is to create the file with headers to store the custom metadata along with the previously fetched metadata and labels and custom metadata to be fetched.
 [ node ooyala_custom_metdata_init.js ]
+ 
 
-
-3.	After 2, run ooyala_custom_metdata_export.js - This will fetch you the nested labels and all the required custom metadata for all assets based on the embed codes we got from STEP 1.
+3.	After 2, Update api_key, api_secret and accoundId in the file 'ooyala_custom_metdata_export.js' and run ooyala_custom_metdata_export.js - This will fetch you the nested labels and all the required custom metadata for all assets based on the embed codes we got from STEP 1.
 [ node ooyala_custom_metdata_export.js ]
+ 
 
-
-4.	After 3, run brightcove_custom_metadata_ingest.js - This will update the custom fields of videos that are in brightcove based on the embed code (from ooyala) and reference id (from brightcove). Success log and Error logs will be created based on the response from videocloud.
+4.	After 3, update the client_id, client_secret and accoundId in the file 'brightcove_custom_metadata_ingest.js' and run brightcove_custom_metadata_ingest.js - This will update the custom fields of videos and remove '/' in tags that are in brightcove based on the embed code (from ooyala) and reference id (from brightcove). Success log and Error logs will be created based on the response from videocloud.
 [ node brightcove_custom_metadata_ingest.js ]
 
+ 
