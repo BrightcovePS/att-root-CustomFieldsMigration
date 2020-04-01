@@ -20,6 +20,7 @@ If an asset doesn’t have a field, ‘NA’ will be placed. (ooyala_custom_meta
 
 How to run the scripts.
 
+Connect to brightcove vpn - https://bostonvpn.brightcove.com/nosplit
 Install all the required node packages by running the command "npm install".
 After installing all the node packages required.
 
